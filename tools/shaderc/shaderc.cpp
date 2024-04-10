@@ -13,7 +13,7 @@ extern "C"
 #include <fpp.h>
 } // extern "C"
 
-#define BGFX_SHADER_BIN_VERSION 11
+#define BGFX_SHADER_BIN_VERSION 0x4
 #define BGFX_CHUNK_MAGIC_CSH BX_MAKEFOURCC('C', 'S', 'H', BGFX_SHADER_BIN_VERSION)
 #define BGFX_CHUNK_MAGIC_FSH BX_MAKEFOURCC('F', 'S', 'H', BGFX_SHADER_BIN_VERSION)
 #define BGFX_CHUNK_MAGIC_VSH BX_MAKEFOURCC('V', 'S', 'H', BGFX_SHADER_BIN_VERSION)
@@ -2199,18 +2199,18 @@ namespace bgfx
 						{
 							bx::write(_shaderWriter, BGFX_CHUNK_MAGIC_FSH, &err);
 							bx::write(_shaderWriter, inputHash, &err);
-							bx::write(_shaderWriter, uint32_t(0), &err);
+							//bx::write(_shaderWriter, uint32_t(0), &err);
 						}
 						else if ('v' == _options.shaderType)
 						{
 							bx::write(_shaderWriter, BGFX_CHUNK_MAGIC_VSH, &err);
-							bx::write(_shaderWriter, uint32_t(0), &err);
+							//bx::write(_shaderWriter, uint32_t(0), &err);
 							bx::write(_shaderWriter, outputHash, &err);
 						}
 						else
 						{
 							bx::write(_shaderWriter, BGFX_CHUNK_MAGIC_CSH, &err);
-							bx::write(_shaderWriter, uint32_t(0), &err);
+							//bx::write(_shaderWriter, uint32_t(0), &err);
 							bx::write(_shaderWriter, outputHash, &err);
 						}
 
@@ -2927,7 +2927,6 @@ namespace bgfx
 
 } // namespace bgfx
 
-int main(int _argc, const char* _argv[])
-{
+int main(int _argc, const char* _argv[]) {
 	return bgfx::compileShader(_argc, _argv);
 }

@@ -363,9 +363,9 @@ namespace bgfx { namespace glsl
 			bx::write(_shaderWriter, un.num, &err);
 			bx::write(_shaderWriter, un.regIndex, &err);
 			bx::write(_shaderWriter, un.regCount, &err);
-			bx::write(_shaderWriter, un.texComponent, &err);
-			bx::write(_shaderWriter, un.texDimension, &err);
-			bx::write(_shaderWriter, un.texFormat, &err);
+//			bx::write(_shaderWriter, un.texComponent, &err);
+//			bx::write(_shaderWriter, un.texDimension, &err);
+//			bx::write(_shaderWriter, un.texFormat, &err);
 
 			BX_TRACE("%s, %s, %d, %d, %d"
 				, un.name.c_str()
