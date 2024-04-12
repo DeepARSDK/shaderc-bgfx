@@ -1540,22 +1540,26 @@ namespace bgfx
 
 				compiled = true;
 			}
-			else if (profile->lang == ShadingLang::Metal)
-			{
-				compiled = compileMetalShader(_options, profile->id, input, _shaderWriter, _messageWriter);
-			}
-			else if (profile->lang == ShadingLang::SpirV)
-			{
-				compiled = compileSPIRVShader(_options, profile->id, input, _shaderWriter, _messageWriter);
-			}
-			else if (profile->lang == ShadingLang::PSSL)
-			{
-				compiled = compilePSSLShader(_options, 0, input, _shaderWriter, _messageWriter);
-			}
-			else
-			{
-				compiled = compileHLSLShader(_options, profile->id, input, _shaderWriter, _messageWriter);
-			}
+            else
+            {
+                bx::printf("Unsupported lang\n");
+            }
+//			else if (profile->lang == ShadingLang::Metal)
+//			{
+//				compiled = compileMetalShader(_options, profile->id, input, _shaderWriter, _messageWriter);
+//			}
+//			else if (profile->lang == ShadingLang::SpirV)
+//			{
+//				compiled = compileSPIRVShader(_options, profile->id, input, _shaderWriter, _messageWriter);
+//			}
+//			else if (profile->lang == ShadingLang::PSSL)
+//			{
+//				compiled = compilePSSLShader(_options, 0, input, _shaderWriter, _messageWriter);
+//			}
+//			else
+//			{
+//				compiled = compileHLSLShader(_options, profile->id, input, _shaderWriter, _messageWriter);
+//			}
 		}
 		else if ('c' == _options.shaderType) // Compute
 		{
@@ -1572,10 +1576,10 @@ namespace bgfx
 				}
 				else
 				{
-					if (profile->lang == ShadingLang::PSSL)
-					{
-						preprocessor.writef(getPsslPreamble() );
-					}
+//					if (profile->lang == ShadingLang::PSSL)
+//					{
+//						preprocessor.writef(getPsslPreamble() );
+//					}
 
 					preprocessor.writef(
 						"#define lowp\n"
@@ -1697,22 +1701,23 @@ namespace bgfx
 							code += _comment;
 							code += preprocessor.m_preprocessed;
 
-							if (profile->lang == ShadingLang::Metal)
-							{
-								compiled = compileMetalShader(_options, profile->id, code, _shaderWriter, _messageWriter);
-							}
-							else if (profile->lang == ShadingLang::SpirV)
-							{
-								compiled = compileSPIRVShader(_options, profile->id, code, _shaderWriter, _messageWriter);
-							}
-							else if (profile->lang == ShadingLang::PSSL)
-							{
-								compiled = compilePSSLShader(_options, 0, code, _shaderWriter, _messageWriter);
-							}
-							else
-							{
-								compiled = compileHLSLShader(_options, profile->id, code, _shaderWriter, _messageWriter);
-							}
+                            bx::printf("Unsupported lang2");
+//							if (profile->lang == ShadingLang::Metal)
+//							{
+//								compiled = compileMetalShader(_options, profile->id, code, _shaderWriter, _messageWriter);
+//							}
+//							else if (profile->lang == ShadingLang::SpirV)
+//							{
+//								compiled = compileSPIRVShader(_options, profile->id, code, _shaderWriter, _messageWriter);
+//							}
+//							else if (profile->lang == ShadingLang::PSSL)
+//							{
+//								compiled = compilePSSLShader(_options, 0, code, _shaderWriter, _messageWriter);
+//							}
+//							else
+//							{
+//								compiled = compileHLSLShader(_options, profile->id, code, _shaderWriter, _messageWriter);
+//							}
 						}
 					}
 
@@ -1830,10 +1835,10 @@ namespace bgfx
 				}
 				else
 				{
-					if (profile->lang == ShadingLang::PSSL)
-					{
-						preprocessor.writef(getPsslPreamble() );
-					}
+//					if (profile->lang == ShadingLang::PSSL)
+//					{
+//						preprocessor.writef(getPsslPreamble() );
+//					}
 
 					preprocessor.writef(
 						"#define lowp\n"
@@ -2603,22 +2608,23 @@ namespace bgfx
 							code += _comment;
 							code += preprocessor.m_preprocessed;
 
-							if (profile->lang == ShadingLang::Metal)
-							{
-								compiled = compileMetalShader(_options, profile->id, code, _shaderWriter, _messageWriter);
-							}
-							else if (profile->lang == ShadingLang::SpirV)
-							{
-								compiled = compileSPIRVShader(_options, profile->id, code, _shaderWriter, _messageWriter);
-							}
-							else if (profile->lang == ShadingLang::PSSL)
-							{
-								compiled = compilePSSLShader(_options, 0, code, _shaderWriter, _messageWriter);
-							}
-							else
-							{
-								compiled = compileHLSLShader(_options, profile->id, code, _shaderWriter, _messageWriter);
-							}
+                            bx::printf("Unsupported lang 3");
+//							if (profile->lang == ShadingLang::Metal)
+//							{
+//								compiled = compileMetalShader(_options, profile->id, code, _shaderWriter, _messageWriter);
+//							}
+//							else if (profile->lang == ShadingLang::SpirV)
+//							{
+//								compiled = compileSPIRVShader(_options, profile->id, code, _shaderWriter, _messageWriter);
+//							}
+//							else if (profile->lang == ShadingLang::PSSL)
+//							{
+//								compiled = compilePSSLShader(_options, 0, code, _shaderWriter, _messageWriter);
+//							}
+//							else
+//							{
+//								compiled = compileHLSLShader(_options, profile->id, code, _shaderWriter, _messageWriter);
+//							}
 						}
 					}
 
@@ -2927,6 +2933,7 @@ namespace bgfx
 
 } // namespace bgfx
 
-int main(int _argc, const char* _argv[]) {
-	return bgfx::compileShader(_argc, _argv);
-}
+
+//int main(int _argc, const char* _argv[]) {
+//	return test(_argv[0], fs, "f");
+//}
